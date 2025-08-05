@@ -1,9 +1,6 @@
 package tests.event.planner.e2e;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -103,5 +100,12 @@ public class EditBudgetItemTest {
 
         Assertions.assertEquals("100", maxPriceText, "Expected maxPrice to be 100, but got: " + maxPriceText);
         Helper.takeScreenshoot(driver, "edit_budget_item_success");
+    }
+
+    @AfterAll
+    public static void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
     }
 }

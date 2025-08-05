@@ -1,9 +1,6 @@
 package tests.event.planner.e2e;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -74,5 +71,12 @@ public class DeleteBudgetItemTest {
 
         Assertions.assertEquals(rowCountBefore - 1, rowCountAfter, "Expected row count to decrease by 1");
         Helper.takeScreenshoot(driver, "delete_budget_item_success");
+    }
+
+    @AfterAll
+    public static void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
     }
 }
